@@ -66,4 +66,12 @@ class Generator(nn.Module):
         up6 = self.up6(torch.cat([up5, d3], dim = 1))
         up7 = self.up7(torch.cat([up6, d2], dim = 1))
         return self.final_up(torch.cat([up7, d1], dim = 1))
-        
+
+def test():
+    x = torch.randn((1, 3, 256, 256))
+    model = Generator()
+    pred = model(x)
+    print(pred.shape)
+
+if __name__ == '__main__':
+    test()
